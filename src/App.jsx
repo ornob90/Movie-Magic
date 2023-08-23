@@ -1,22 +1,28 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { fetchAPI } from "./API/api";
 import useFetch from "./hooks/useFetch";
 import Home from "./pages/home/home";
+import { getApiConfig, getGenre } from "./store/homeSlice";
 
 function App() {
-  // useEffect(() => {
-  //   getApiRes();
-  // });
+  const dispatch = useDispatch();
 
-  // const getApiRes = () => {
-  //   fetchAPI("/movie/popular")
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  useEffect(() => {
+    apiConfiguration();
+  });
+
+  const apiConfiguration = () => {
+    fetchAPI("/configuration").then((res) => {
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      };
+
+      dispatch(getApiConfig(url));
+    });
+  };
 
   return (
     <>
