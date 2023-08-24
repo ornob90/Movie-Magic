@@ -15,12 +15,12 @@ const HomeBanner = () => {
   const topThreeMovies = data?.results?.slice(0, 3);
 
   return (
-    <div className="flex h-[95vh] min-h-[500px] w-[90%] mx-auto mt-[4.5%]">
+    <div className="flex h-[95vh] min-h-[500px] w-[90%] mx-auto lg:mt-[4.5%]">
       {/* Left Side Banner */}
-      <div className="w-full lg:w-[60%] relative ">
+      <div className="w-full h-screen lg:h-auto lg:w-[60%] relative ">
         {/* BG Image */}
 
-        <div className="relative w-full h-full  opacity-25">
+        <div className="relative w-full h-full opacity-25">
           {!loading && (
             // <img
             //   src={url.backdrop + movie?.backdrop_path}
@@ -40,11 +40,11 @@ const HomeBanner = () => {
 
         {loading && (
           <div className="bg-slate-700 absolute left-[2%] md:h-[20%] w-[20%] h-auto md:w-[20%]">
-            <div className="h-4/5 w-4/5 rounded-full"></div>
+            <div className="w-4/5 rounded-full h-4/5"></div>
           </div>
         )}
 
-        <div className="w-full absolute left-2 bottom-8 sm:bottom-2 shadow-lg">
+        <div className="absolute w-full shadow-lg left-2 bottom-8 sm:bottom-2">
           {!loading && (
             // {"hidden sm:block absolute left-[2%] bottom-[10%] md:bottom-[30%] lg:bottom-[20%] md:h-[30%] w-[20%] h-auto md:w-[20%]"}
             <div className="hidden sm:block md:h-[30%] w-[20%] h-auto md:w-[20%]">
@@ -57,7 +57,7 @@ const HomeBanner = () => {
           )}
 
           <div className="h-max absolute right-0 bottom-[20%] w-[90%] sm:w-[72%]">
-            <div className="text-white z-10 text-5xl md:text-5xl lg:text-5xl ">
+            <div className="z-10 text-5xl text-white md:text-5xl lg:text-5xl ">
               {movie?.original_title}
             </div>
             <div className="text-white">Watch The Trailer</div>
@@ -81,9 +81,9 @@ const HomeBanner = () => {
 
                 <img src={url.poster + poster_path} alt="" className="" />
 
-                <div className="text-white flex flex-col justify-center overflow-hidden gap-3">
-                  <h1 className="font-bold mt-4 text-3xl ">{title}</h1>
-                  <p className="text-sm  truncate ">{overview}</p>
+                <div className="flex flex-col justify-center gap-3 overflow-hidden text-white">
+                  <h1 className="mt-4 text-3xl font-bold ">{title}</h1>
+                  <p className="text-sm truncate ">{overview}</p>
                   <p className="text-sm">Releasing {release_date}</p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const HomeBanner = () => {
           )}
         </div>
 
-        <div className="flex gap-2 items-center text-2xl font-bold">
+        <div className="flex items-center gap-2 text-2xl font-bold">
           <h1 className="">Browse More</h1>
           <BsBoxArrowInRight className="mt-2" />
         </div>
