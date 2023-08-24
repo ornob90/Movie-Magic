@@ -15,7 +15,7 @@ const HomeBanner = () => {
   const topThreeMovies = data?.results?.slice(0, 3);
 
   return (
-    <div className="flex h-[95vh] w-[90%] mx-auto">
+    <div className="flex h-[95vh] min-h-[500px] w-[90%] mx-auto mt-[4.5%]">
       {/* Left Side Banner */}
       <div className="w-full lg:w-[60%] relative ">
         {/* BG Image */}
@@ -84,7 +84,7 @@ const HomeBanner = () => {
                 <div className="text-white flex flex-col justify-center overflow-hidden gap-3">
                   <h1 className="font-bold mt-4 text-3xl ">{title}</h1>
                   <p className="text-sm  truncate ">{overview}</p>
-                  <p class="text-sm">Releasing {release_date}</p>
+                  <p className="text-sm">Releasing {release_date}</p>
                 </div>
               </div>
             )

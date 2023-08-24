@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { fetchAPI } from "./API/api";
 import useFetch from "./hooks/useFetch";
+import Navbar from "./pages/home/Navbar";
 import Home from "./pages/home/home";
+import SearchResult from "./pages/search/SearchResult";
 import { getApiConfig, getGenre } from "./store/homeSlice";
 
 function App() {
@@ -25,9 +28,13 @@ function App() {
   };
 
   return (
-    <>
-      <Home />
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search/:query" element={<SearchResult />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
